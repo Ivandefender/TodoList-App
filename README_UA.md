@@ -1,8 +1,8 @@
 <h1 align="center">Todo List App</h1>
 
 <div align="center">
-    <a href="https://ivandefender.github.io/QuizApp/">View Project |</a>
-    <a href="https://github.com/Ivandefender/QuizApp/tree/main/js">View Code</a>
+    <a href="https://ivandefender.github.io/TodoList-App/">View Project |</a>
+    <a href="https://github.com/Ivandefender/TodoList-App/blob/main/js/script.js">View Code</a>
 </div>
 
 <p align="center">

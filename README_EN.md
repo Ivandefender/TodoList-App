@@ -1,9 +1,10 @@
 <h1 align="center">Todo List App</h1>
 
 <div align="center">
- <a href="">View Project |</a>
- <a href="">View Code</a>
+    <a href="https://ivandefender.github.io/TodoList-App/">View Project |</a>
+    <a href="https://github.com/Ivandefender/TodoList-App/blob/main/js/script.js">View Code</a>
 </div>
+
 
 <p align="center">
 <img src="https://img.shields.io/badge/HTML-orange?style=for-the-badge&logo=html&logoColor=orange">
