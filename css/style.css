@@ -1,0 +1,397 @@
+/* BASIC */
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,regular,500,600,700,100italic,200italic,300italic,italic,500italic,600italic,700italic);
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  transition: 0.2s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img,
+svg {
+  vertical-align: top;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  background-color: inherit;
+}
+
+button {
+  cursor: pointer;
+  padding: 0;
+  border: none;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--bgPage);
+}
+
+:root[data-theme="light"] {
+  --bgPage: rgb(250, 250, 250);
+  --bgPageImg: url(../images/bg-desktop-light.jpg);
+  --themeBtn: url(../images/icon-moon.svg);
+
+  --colorTodos: #fff;
+  --boxShadowTodos: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  --circles: rgb(151, 151, 151);
+
+  --createTodoPlaceholder: rgb(147, 148, 165);
+  --todoLines: rgb(228, 229, 241);
+  --todoTextColor: rgb(210, 211, 219);
+  --controlTodos: rgb(147, 148, 165);
+  --controlTodosHover: rgb(73, 76, 107);
+
+  --textColor: rgb(73, 76, 107);
+}
+
+:root[data-theme="dark"] {
+  --bgPage: rgb(23, 24, 35);
+  --bgPageImg: url(../images/bg-desktop-dark.jpg);
+  --themeBtn: url(../images/icon-sun.svg);
+
+  --colorTodos: rgb(37, 39, 61);
+  --boxShadowTodos: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+  --circles: rgb(57, 58, 75);
+
+  --createTodoPlaceholder: rgb(118, 121, 146);
+  --todoLines: rgb(57, 58, 75);
+  --todoTextColor: rgb(77, 80, 103);
+  --controlTodos: rgb(91, 94, 126);
+  --controlTodosHover: rgb(227, 228, 241);
+
+  --textColor: rgb(200, 203, 231);
+}
+
+/* BASIC */
+.wrapper__img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 100%;
+  transition: 0.3s all;
+  background-image: var(--bgPageImg);
+  position: relative;
+}
+
+.todo__container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+}
+
+.todo__title {
+  width: 540px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.todo__title h1 {
+  font-weight: 700;
+  font-size: 32px;
+  letter-spacing: 15px;
+  color: #fff;
+}
+
+.todo__theme {
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 24px;
+  height: 24px;
+  transition: 0.2s ease-in-out;
+  background-image: var(--themeBtn);
+}
+
+.todo__theme:hover {
+  width: 30px;
+  height: 30px;
+}
+
+.moon {
+  background-image: url(../images/icon-moon.svg);
+}
+
+.sun {
+  background-image: url(../images/icon-sun.svg);
+}
+
+.todo__input-info {
+  position: relative;
+}
+
+.todo__input {
+  width: 540px;
+  height: 64px;
+  background-color: var(--colorTodos);
+  margin-bottom: 24px;
+  outline: none;
+  color: var(--textColor);
+  border-radius: 5px;
+  padding-left: 72px;
+}
+
+.todo__input-circle {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translate(0%, -100%);
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--circles);
+  background-color: transparent;
+}
+
+.todo__input::placeholder {
+  color: var(--createTodoPlaceholder);
+}
+
+.todo__editor {
+  border-radius: 5px;
+  box-shadow: var(--boxShadowTodos);
+  background-color: var(--colorTodos);
+  margin-bottom: 49px;
+}
+
+.item {
+  padding: 20px 24px 20px 24px;
+  border-bottom: 1px solid var(--todoLines);
+  position: relative;
+  width: 540px;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item__checkbox {
+  display: none;
+}
+
+.item__text {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 36px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--circles);
+  background-color: transparent;
+  transition: 0.3s all;
+}
+
+input[type="checkbox"] + .checkItem:hover {
+  border: 1px solid #57ddff;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label::before {
+  content: "";
+  position: absolute;
+  transition: 0.3s all;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: url(../images/icon-check.svg),
+    linear-gradient(
+      135deg,
+      rgba(87, 221, 255, 1) 35%,
+      rgba(192, 88, 243, 1) 100%
+    );
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: none;
+}
+
+input[type="checkbox"] + label span {
+  color: var(--textColor);
+}
+
+input[type="checkbox"]:checked + label span {
+  color: var(--todoTextColor);
+  text-decoration: line-through;
+}
+
+.todo__filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px 20px 24px;
+  width: 540px;
+  margin: 0 auto;
+}
+
+.todo__count {
+  color: var(--controlTodos);
+}
+
+.filter__buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 166px;
+}
+
+.item:hover .close__todo {
+  display: block;
+}
+
+.close__todo {
+  display: none;
+  width: 18px;
+  height: 18px;
+  background-image: url(../images/icon-cross.svg);
+}
+
+.btnBase {
+  font-weight: 700;
+  color: var(--controlTodos);
+  transition: 0.3s all;
+}
+
+.btnBase.btn__active {
+  color: #3a7cfd;
+}
+
+.btnBase:hover {
+  color: var(--controlTodosHover);
+}
+
+.clear {
+  color: var(--controlTodos);
+  font-size: 14px;
+  transition: 0.3s all;
+}
+
+.clear:hover {
+  color: var(--controlTodosHover);
+}
+
+.todo__info {
+  color: var(--controlTodos);
+  font-size: 14px;
+}
+
+/* Перетягування */
+
+.hold{
+  border: 5px solid black;
+}
+
+.hide{
+  display: none;
+}
+
+.item:active{
+  cursor: grabbing;
+}
+
+/* Перетягування */
+
+@media (max-width: 599.99px){
+  :root[data-theme="light"] {
+    --bgPageImg: url(../images/bg-mobile-light.jpg);
+  }
+  
+  :root[data-theme="dark"] {
+    --bgPageImg: url(../images/bg-mobile-dark.jpg);
+  }
+
+  .wrapper__img {
+    height: 200px;
+  }
+  
+  .todo__title {
+    width: 327px;
+    margin-bottom: 80px;
+  }
+
+  .todo__input {
+    width: 327px;
+  }
+
+  .todo__editor {
+    margin-bottom: 104px;
+  }
+
+  .item {
+    width: 327px;
+  }
+
+  .todo__filters {
+    width: 327px;
+    position: relative;
+  }
+
+  .filter__buttons {
+    box-shadow: var(--boxShadowTodos);
+    background-color: var(--colorTodos);
+    position: absolute;
+    bottom: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 327px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    border-radius: 5px;
+  }
+
+  .btnBase{
+    height: 18px;
+  }
+}
+

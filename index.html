@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Frontend Mentor | Todo app</title>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="wrapper__img"></div>
+
+    <div class="todo__container">
+
+      <div class="todo__title">
+        <h1>TODO</h1>
+        <button class="todo__theme"></button>
+      </div>
+
+      <div class="todo__input-info">
+        <span class="todo__input-circle"></span>
+        <input type="text" name="todoNew" class="todo__input" placeholder="Create a new todo">
+      </div>
+
+      <div class="todo__editor">
+        <ul class="todo__items" id="sortList">
+          <li class="item" draggable="true">
+            <input class="item__checkbox" type="checkbox" name="itemInput" id="itemInput1">
+            <label class="item__text" for="itemInput1">
+              <span class="todoText">Add Todo</span>
+            </label>
+            <button class="close__todo"></button>
+          </li>
+        </ul>
+
+        <div class="todo__filters">
+          <span class="todo__count"></span>
+          <div class="filter__buttons">
+            <button class="btnBase btn__active" id="allBtn">All</button>
+            <button class="btnBase" id="activeBtn">Active</button>
+            <button class="btnBase" id="completedBtn">Completed</button>
+          </div>
+          <button class="clear">Clear Completed</button>
+        </div>
+      </div>
+
+      <p class="todo__info">Drag and drop to reorder list</p>
+
+    </div>
+
+  </div>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script> -->
+  <script src="./js/script.js"></script>
+
+</body>
+
+</html>
