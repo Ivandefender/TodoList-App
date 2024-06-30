@@ -2,7 +2,7 @@
 
 <div align="center">
     <a href="https://ivandefender.github.io/TodoList-App/">View Project |</a>
-    <a href="https://github.com/Ivandefender/TodoList-App/blob/main/js/script.js">View Code</a>
+    <a href="https://github.com/Ivandefender/TodoList-App">View Code</a>
 </div>
 
 
